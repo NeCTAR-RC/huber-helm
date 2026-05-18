@@ -1,0 +1,12 @@
+apiVersion: v2
+name: huber
+description: A Helm chart for huber
+type: application
+version: 0.1.0
+appVersion: 0.0.0
+sources:
+- https://github.com/NeCTAR-RC/huber-helm.git
+dependencies:
+- name: nectarlib
+  version: 4.0.1
+  repository: oci://registry.rc.nectar.org.au/nectar-helm

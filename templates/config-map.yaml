@@ -1,0 +1,4 @@
+{{- include "nectarlib.configmap" (list . "huber.configmap") -}}
+{{- define "huber.configmap" -}}
+data: {}
+{{- end -}}

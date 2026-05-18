@@ -1,0 +1,8 @@
+huber-notification is now running.
+
+Check the pod's logs to confirm it's connected to the message bus and
+processing notifications from ceilometer:
+
+  kubectl --namespace {{ .Release.Namespace }} logs -l app.kubernetes.io/name={{ include "nectarlib.name" . }} -f
+
+Enabled handlers: {{ join ", " .Values.conf.handlers.enabled | default "(none — set conf.handlers.enabled to load handlers)" }}
