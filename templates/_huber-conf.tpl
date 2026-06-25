@@ -5,7 +5,6 @@ debug={{ .Values.conf.debug }}
 [notification]
 exchange={{ .Values.conf.notification.exchange }}
 topic={{ .Values.conf.notification.topic }}
-pool={{ .Values.conf.notification.pool }}
 
 [handlers]
 {{- if .Values.conf.handlers.enabled }}

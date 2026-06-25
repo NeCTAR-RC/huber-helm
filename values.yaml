@@ -13,7 +13,6 @@ conf:
   notification:
     exchange: ceilometer
     topic: huber
-    pool: huber
   handlers:
     # List of handler entry-point names to load. Available out of the
     # box: "logging", "project_membership".
