@@ -16,6 +16,9 @@ subject={{ .Values.conf.project_membership.subject }}
 tenantmanager_role={{ .Values.conf.project_membership.tenantmanager_role }}
 member_role={{ .Values.conf.project_membership.member_role }}
 
+[sentry]
+environment={{ .Values.conf.sentry.environment }}
+
 [oslo_messaging_rabbit]
 ssl=True
 rabbit_quorum_queue=true

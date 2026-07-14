@@ -21,6 +21,8 @@ conf:
     subject: Nectar project role change
     tenantmanager_role: tenantmanager
     member_role: member
+  sentry:
+    environment: production
 
 vault:
   role: k8s

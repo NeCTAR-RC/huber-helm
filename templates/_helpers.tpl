@@ -14,5 +14,9 @@ vault.hashicorp.com/agent-inject-template-secrets.conf: |
   {{ print "transport_url={{ .Data.data.transport_url }}" }}
   {{ print "[service_auth]" }}
   {{ print "password={{ .Data.data.keystone_password }}" }}
+  {{ print "{{- if .Data.data.sentry_dsn }}" }}
+  {{ print "[sentry]" }}
+  {{ print "dsn={{ .Data.data.sentry_dsn }}" }}
+  {{ print "{{- end }}" }}
   {{ print "{{- end -}}" }}
 {{- end }}
