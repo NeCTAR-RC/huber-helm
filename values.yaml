@@ -52,6 +52,25 @@ notification:
     # requests:
     #   cpu: 100m
     #   memory: 128Mi
+  # huber-notification runs a notification listener, not an RPC
+  # server, so oslo.messaging's RPC ping endpoint is not available.
+  # Instead check the pod holds an ESTABLISHED TCP connection to the
+  # transport_url port, which catches a cotyledon service manager that
+  # is running but spawned no consumer at all. Startup-only on
+  # purpose: a liveness probe on the message bus would mass-restart
+  # every worker during a RabbitMQ outage that oslo.messaging would
+  # ride out by reconnecting; post-start wedges are left to
+  # queue/consumer alerting. Requires nectarlib >= 4.4.0 to render.
+  startupProbe:
+    exec:
+      command:
+        - nectar-health-probe
+        - "--project"
+        - huber
+        - amqp
+    periodSeconds: 10
+    timeoutSeconds: 5
+    failureThreshold: 30
 
 
 image:
